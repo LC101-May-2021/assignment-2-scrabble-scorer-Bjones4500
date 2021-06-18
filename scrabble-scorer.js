@@ -29,28 +29,51 @@ function oldScrabbleScorer(word) {
 	return letterPoints;
  }
 
-
-console.log(oldScrabbleScorer(initialPrompt()));
-
-
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
 
-  let word = input.question("Let's play some scrabble! \n Enter a word: ");
+  let word = input.question("Let's play some scrabble! \nEnter a word: ");
  return word;
 }
+console.log(oldScrabbleScorer(initialPrompt()));
 
-let simpleScore;
+let simpleScore = 
+console.log(`Each letter is 1 point\nPoints for ${word}: ${simpleScore}`);
+return simpleScore;
   
-let vowelBonusScore;
+let vowelBonusScore =
+console.log(`Each Vowel is 3 Points and each consonantsis 1\nPoints for ${word}: ${vowelBonusScore}`);
+return vowelBonusScore;
+}
 
-let scrabbleScore;
+let scrabbleScore = ;
 
-const scoringAlgorithms = [];
+let scoringAlgorithms = [
+  {name: "Simple Score",description: "Each letter is worth 1 point.",scorerFunction: simpleScore},
+  {name: "Bonus Vowels", description: "Vowels are 3 pts, consonants are 1 pt.",scorerFunction: vowelBonusScore}, {name: "Scrabble",description:"The traditional scoring algorithm.", scorerFunction: oldScrabbleScorer}];
 
-function scorerPrompt() {}
+console.log(scorerPrompt(scoringAlgorithms));
+
+function scorerPrompt(word) {
+ let  scoreType = input.question("Which scoring algorithm would you like to use?\n\n0-Simple: One point per character\n1- Vowel Bonus: Vowels are worth 3 points\n2- Scrabble: Uses scrabble point system\nEnter 0,1, or 2: ");
+  if (scoreType == 0) {
+    console.log("Algorithm Name: ", scoringAlgorithms[0].name);
+    scrabbleScore = scoringAlgorithms[0].scorerFunction;
+    console.log("Results: ", scrabbleScore);
+     } else if (scoreType ==1){
+    console.log("Algorithm Name: ", scoringAlgorithms[1].name);
+    scrabbleScore = scoringAlgorithms[1].scorerFunction;
+    console.log("Results: ", scrabbleScore);
+     } else if (scoreType == 2){
+    console.log("Algorithm Name: ", scoringAlgorithms[2].name);
+     scrabbleScore = scoringAlgorithms[2].scorerFunction;
+    console.log("Results: ", scrabbleScore);
+  }
+  return scrabbleScore;
+}
+
 
 function transform() {};
 
