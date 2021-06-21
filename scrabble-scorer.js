@@ -33,7 +33,7 @@ function initialPrompt() {
 // console.log(oldScrabbleScorer(initialPrompt()));
 
 function simpleScore(word) {
-  let num = '';
+  let num = 0;
   for (let i = 1; i <= word.length; i++) {
     num = i;
   }
